@@ -207,10 +207,7 @@ export const ExportVideoPanelPlugin = (
           value: number;
           setValue: (v: number) => void;
         };
-        const heightState = state(
-          'custom-resolution-height',
-          pageHeight
-        ) as {
+        const heightState = state('custom-resolution-height', pageHeight) as {
           value: number;
           setValue: (v: number) => void;
         };
@@ -370,4 +367,3 @@ function resolutionHasSameAspectRatio(
     resolution2.width / resolution2.height
   );
 }
-
