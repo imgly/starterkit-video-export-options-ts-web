@@ -1,8 +1,8 @@
 /**
  * CE.SDK Video Export Options Starterkit - Main Entry Point
  *
- * A video editor with customizable export options for resolution,
- * format, and quality settings.
+ * A video editor with custom export options panel for selecting
+ * resolution (SD, HD, FHD, 2K, 4K, Custom) and FPS (24, 30, 60, 120).
  *
  * @see https://img.ly/docs/cesdk/js/getting-started/
  */
@@ -10,30 +10,27 @@
 import CreativeEditorSDK from '@cesdk/cesdk-js';
 
 import { initVideoExportOptionsEditor } from './imgly';
-import { resolveAssetPath } from './imgly/resolveAssetPath';
+import { resolveAssetPath } from './resolveAssetPath';
 
 // ============================================================================
 // Configuration
 // ============================================================================
 
 const config = {
-  userId: 'starterkit-video-export-options-user'
+  userId: 'starterkit-video-export-options-user',
 
-  // Local assets
-  // baseURL: `/assets/`,
+  // Local assets for development
 
-  // License key (required for production)
-  // license: 'YOUR_LICENSE_KEY',
 };
 
 // ============================================================================
-// Initialize Video Export Options Editor
+// Initialize Video Editor with Export Options
 // ============================================================================
 
 CreativeEditorSDK.create('#cesdk_container', config)
   .then(async (cesdk) => {
     // Debug access (remove in production)
-    (window as any).cesdk = cesdk;
+    (window as unknown as { cesdk: CreativeEditorSDK }).cesdk = cesdk;
 
     await initVideoExportOptionsEditor(cesdk);
     // ============================================================================
