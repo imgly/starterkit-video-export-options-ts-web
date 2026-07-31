@@ -37,7 +37,7 @@ CreativeEditorSDK.create('#cesdk_container', config)
     // Scene Loading
     // ============================================================================
 
-    await cesdk.loadFromURL(
+    await cesdk.load(
       resolveAssetPath('/assets/example-video-motion.scene')
     );
 
