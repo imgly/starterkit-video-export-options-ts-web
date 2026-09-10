@@ -12,6 +12,7 @@ import CreativeEditorSDK from '@cesdk/cesdk-js';
 import { initVideoExportOptionsEditor } from './imgly';
 import { resolveAssetPath } from './resolveAssetPath';
 
+
 // ============================================================================
 // Configuration
 // ============================================================================
