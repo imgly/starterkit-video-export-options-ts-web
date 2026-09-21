@@ -4,13 +4,14 @@
  * A video editor with custom export options panel for selecting
  * resolution (SD, HD, FHD, 2K, 4K, Custom) and FPS (24, 30, 60, 120).
  *
- * @see https://img.ly/docs/cesdk/js/getting-started/
+ * @see https://img.ly/docs/cesdk/js/get-started/overview-e18f40/
  */
 
 import CreativeEditorSDK from '@cesdk/cesdk-js';
 
 import { initVideoExportOptionsEditor } from './imgly';
 import { resolveAssetPath } from './resolveAssetPath';
+
 
 // ============================================================================
 // Configuration
@@ -37,7 +38,7 @@ CreativeEditorSDK.create('#cesdk_container', config)
     // Scene Loading
     // ============================================================================
 
-    await cesdk.loadFromURL(
+    await cesdk.load(
       resolveAssetPath('/assets/example-video-motion.scene')
     );
 
