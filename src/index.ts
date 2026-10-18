@@ -10,7 +10,7 @@
 import CreativeEditorSDK from '@cesdk/cesdk-js';
 
 import { initVideoExportOptionsEditor } from './imgly';
-import { DEMO_ASSETS_BASE_URL } from './imgly/demo-assets';
+import { resolveAssetPath } from './resolveAssetPath';
 
 
 // ============================================================================
@@ -30,6 +30,8 @@ const config = {
 
 CreativeEditorSDK.create('#cesdk_container', config)
   .then(async (cesdk) => {
+    // Debug access (remove in production)
+    (window as unknown as { cesdk: CreativeEditorSDK }).cesdk = cesdk;
 
     await initVideoExportOptionsEditor(cesdk);
     // ============================================================================
@@ -37,7 +39,7 @@ CreativeEditorSDK.create('#cesdk_container', config)
     // ============================================================================
 
     await cesdk.load(
-      `${DEMO_ASSETS_BASE_URL}/assets/example-video-motion.scene`
+      resolveAssetPath('/assets/example-video-motion.scene')
     );
 
     // Open panel
