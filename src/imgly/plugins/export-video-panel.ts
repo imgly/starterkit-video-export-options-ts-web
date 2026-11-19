@@ -6,7 +6,7 @@
  * or specify custom dimensions while maintaining aspect ratio.
  */
 
-import { EditorPlugin } from '@cesdk/cesdk-js';
+import type { EditorPlugin } from '@cesdk/cesdk-js';
 
 const MAX_RESOLUTION = 4000;
 
@@ -359,10 +359,10 @@ export const ExportVideoPanelPlugin = (
   }
 });
 
-enum ERRORS {
-  MAX_RESOLUTION = 'video-export.custom-resolution.max-error.label',
-  MIN_RESOLUTION = 'video-export.custom-resolution.min-error.label'
-}
+const ERRORS = {
+  MAX_RESOLUTION: 'video-export.custom-resolution.max-error.label',
+  MIN_RESOLUTION: 'video-export.custom-resolution.min-error.label'
+} as const;
 
 function resolutionHasSameAspectRatio(
   resolution1: Resolution,
